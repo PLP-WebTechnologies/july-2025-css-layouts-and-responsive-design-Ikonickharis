@@ -1,0 +1,133 @@
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Grid Container */
+.container {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "nav"
+    "main"
+    "sidebar"
+    "footer";
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+/* Grid Areas */
+header {
+  grid-area: header;
+  background-color: #444;
+  color: white;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.navbar {
+  grid-area: nav;
+  background-color: #222;
+}
+
+.navbar ul {
+  display: flex; /* Flexbox used here */
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+}
+
+.navbar li {
+  margin: 0.5rem 1rem;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background-color: #eaeaea;
+  padding: 1rem;
+}
+
+.content {
+  grid-area: main;
+  background-color: white;
+  padding: 1rem;
+}
+
+.cards {
+  display: flex; /* Flexbox used for responsive cards */
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.card {
+  background-color: #ddd;
+  flex: 1 1 calc(50% - 1rem);
+  padding: 1rem;
+  border-radius: 4px;
+  min-width: 200px;
+}
+
+footer {
+  grid-area: footer;
+  background-color: #444;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Media Queries */
+
+/* Tablet (≥ 768px) */
+@media (min-width: 768px) {
+  .container {
+    grid-template-areas:
+      "header header"
+      "nav nav"
+      "sidebar main"
+      "footer footer";
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .navbar ul {
+    justify-content: flex-start;
+    padding: 0 1rem;
+  }
+
+  .card {
+    flex: 1 1 calc(45% - 1rem);
+  }
+}
+
+/* Desktop (≥ 1024px) */
+@media (min-width: 1024px) {
+  .container {
+    grid-template-areas:
+      "header header header"
+      "nav nav nav"
+      "sidebar main main"
+      "footer footer footer";
+    grid-template-columns: 1fr 2fr 1fr;
+  }
+
+  .card {
+    flex: 1 1 calc(30% - 1rem);
+  }
+}
